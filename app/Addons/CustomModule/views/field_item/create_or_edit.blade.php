@@ -1,0 +1,123 @@
+@extends('layouts.admin')
+@section('style')
+@endsection
+
+@section('content')
+    <div class="layui-fluid">
+        <x-menu-breadcrumb-path :menuId="$menuActiveId"/>
+        <div class="system-gui-main bg-white system-gui-add">
+            <form class="layui-form" action="" lay-filter="currentForm" onsubmit="return false;">
+                <div class="layui-tab layui-tab-brief">
+
+                    <div class="fr page-a-link">
+                        <span class="layui-breadcrumb" lay-separator="|">
+                        @if(isset($fieldItem->id))
+                          <a class="btn-link" href="{{url('admin/field_item/create')}}">{{__('message.tab.go_create')}}</a>
+                          <a class="btn-link" href="{{url('admin/field_item/'.$fieldItem->id)}}">{{__('message.tab.go_view')}}</a>
+                          @else
+                          <a class="btn-link" href="{{url('admin/field_item')}}">{{__('message.tab.back_list')}}</a>
+                        @endif
+                        </span>
+                    </div>
+
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">{{__('message.tab.base_info')}}</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            @method($_method ?? '')
+                            @csrf
+                            <input type="hidden" name="id" value="{{$fieldItem->id ?? ''}}">
+                            <div class="layui-form-item">
+                    <label class="layui-form-label">FIELD_ID <span class="color-red"></span></label>
+                    <div class="layui-input-block">
+                        <input type="text" name="FieldItem[field_id]" value="{{$fieldItem->field_id ?? ''}}" maxlength="36" autocomplete="off"
+                               placeholder=""
+                               class="layui-input">
+                    </div>
+                </div>
+<div class="layui-form-item">
+                    <label class="layui-form-label">键值 <span class="color-red"></span></label>
+                    <div class="layui-input-block">
+                        @foreach($fieldItem->valueItem() as $ind=>$val)
+                        <input type="radio" name="FieldItem[value]" value="{{$ind}}" title="{{$val}}"
+                         @if(isset($fieldItem->value) && $fieldItem->value==$ind ) checked @endif >
+                        @endforeach
+                    </div>
+                </div><div class="layui-form-item">
+                    <label class="layui-form-label">名称 <span class="color-red"></span></label>
+                    <div class="layui-input-block">
+                        <input type="text" name="FieldItem[label]" value="{{$fieldItem->label ?? ''}}" maxlength="191" autocomplete="off"
+                               placeholder=""
+                               class="layui-input">
+                    </div>
+                </div>
+<div class="layui-form-item">
+                    <label class="layui-form-label">状态 <span class="color-red"></span></label>
+                    <div class="layui-input-block">
+                        @foreach($fieldItem->statusItem() as $ind=>$val)
+                        <input type="radio" name="FieldItem[status]" value="{{$ind}}" title="{{$val}}"
+                         @if(isset($fieldItem->status) && $fieldItem->status==$ind ) checked @endif >
+                        @endforeach
+                    </div>
+                </div><div class="layui-form-item">
+                    <label class="layui-form-label">颜色 <span class="color-red"></span></label>
+                    <div class="layui-input-block">
+                        <input type="text" name="FieldItem[color]" value="{{$fieldItem->color ?? ''}}" maxlength="50" autocomplete="off"
+                               placeholder=""
+                               class="layui-input">
+                    </div>
+                </div>
+<div class="layui-form-item">
+                    <label class="layui-form-label">排序 <span class="color-red"></span></label>
+                    <div class="layui-input-block">
+                        <input type="text" name="FieldItem[sort]" value="{{$fieldItem->sort ?? ''}}" maxlength="" autocomplete="off"
+                               placeholder=""
+                               class="layui-input">
+                    </div>
+                </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block  padding-bottom-15">
+                        <button class="layui-btn" lay-submit="" lay-filter="form{{$_method}}">{{__('message.buttons.save_submit')}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
+
+@section('footer')
+    @include('common/ueditor',['name'=>'content'])
+    <script type="text/javascript">
+        layui.use(['element', 'form', 'jquery', 'layedit', 'laydate', 'systemGui'], function () {
+            var form = layui.form
+                , element = layui.element
+                , layer = layui.layer
+                , $ = layui.jquery
+                , layedit = layui.layedit
+                , systemGui = layui.systemGui
+                , laydate = layui.laydate;
+            LayerPageIndex = layer.index;
+            form.render();
+            //监听提交
+
+            
+
+            //新建
+            form.on('submit(formPOST)', function (data) {
+                systemGui.createOrUpdate(data.field, 'POST','{{url('admin/field_item')}}')
+                return false;
+            });
+            //更新
+            form.on('submit(formPUT)', function (data) {
+                systemGui.createOrUpdate(data.field, 'PUT','{{url('admin/field_item',$fieldItem->id)}}')
+
+                return false;
+            });
+        });
+    </script>
+@endsection

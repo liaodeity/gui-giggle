@@ -13,7 +13,12 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/helpers": "^1.4",
+        "laravel/tinker": "^2.5",
+        "league/fractal": "^0.19.2",
+        "maatwebsite/excel": "^3.1",
+        "mews/captcha": "^3.2",
+        "spatie/laravel-permission": "^4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -38,7 +43,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/system_gui.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

@@ -1,0 +1,267 @@
+/*-----------------------------------
+*-------------------------------------------基本样式
+---------------------------------------------------*/
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+i, em {
+    font-style: normal;
+}
+
+.rel {
+    position: relative;
+}
+
+.abs {
+    position: absolute;
+}
+
+.clear {
+    clear: both;
+}
+
+.color-2196f3 {
+    color: #2196f3;
+}
+
+.color-ff2a00 {
+    color: #ff2a00;
+}
+
+.color-666 {
+    color: #666;
+}
+
+.color-999 {
+    color: #999;
+}
+
+.color-ccc {
+    color: #ccc;
+}
+
+.color-a5dc86 {
+    color: #a5dc86 !important;
+}
+
+.color-09a6d6 {
+    color: #09a6d6;
+}
+
+.color-ff2502 {
+    color: #ff2502;
+}
+
+.line_b {
+    border-bottom: 1px solid #ccc;
+}
+
+.fz18 {
+    font-size: 18px;
+}
+
+body {
+    color: #333;
+}
+
+em {
+    font-style: normal;
+}
+
+a:hover {
+    color: #2196f3;
+}
+.btn-link{
+    color: #09a6d6;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.center-block {
+    text-align: center;
+}
+
+.bg-white {
+    background: #fff !important;
+}
+
+body {
+    background-color: #f6f8f9;
+    min-width: 768px;
+}
+.mt20{margin-top: 20px;}
+
+.page-a-link .layui-breadcrumb{
+    display: flex;
+    line-height: 41px;
+    z-index: 1;
+    position: relative;
+    right: 15px;
+}
+.page-a-link a.btn-link{
+    display: flex;
+
+}
+
+/*-------------------------------------------重置layui基本样式*/
+.layui-badge-rim, .layui-colla-content, .layui-colla-item, .layui-collapse, .layui-elem-field, .layui-form-pane .layui-form-item[pane], .layui-form-pane .layui-form-label, .layui-input, .layui-layedit, .layui-layedit-tool, .layui-quote-nm, .layui-select, .layui-tab-bar, .layui-tab-card, .layui-tab-title, .layui-tab-title .layui-this:after, .layui-textarea {
+    border-color: #d9d9d9;
+}
+.layui-input:hover, .layui-textarea:hover {
+    border-color: #2196f3!important;
+}
+.layui-form-select dl dd.layui-this {
+    background-color: #2196f3;
+}
+.layui-btn-primary:hover {
+    border-color: #2196f3; color: #2196f3;
+}
+.layui-tab-card{box-shadow: none;}
+
+.padding-bottom-15 {
+    padding-bottom: 15px;
+}
+
+
+/*-----------------------------------
+*-------------------------------------------公共部分 2196f3
+---------------------------------------------------*/
+
+/*顶部*/
+.header {width: 100%;height: 80px;background: #fff;box-shadow: 0 1px 4px rgba(238, 238, 239, 0.5);}
+
+.header-con {padding: 0 65px;}
+
+.logo {float: left;line-height: 80px;}
+
+.logo img {vertical-align: middle;margin-right: 5px;}
+
+.logo .logo-txt {font-size: 28px;vertical-align: middle;display: inline-block;color: #2196f3;}
+
+.header-right {float: right;}
+
+.account-msg {
+    margin: 20px 0;width: 40px;height: 40px;border-radius: 50%;border: 1px solid #ccc;float: left;
+    text-align: center;line-height: 40px; cursor: pointer;margin-right: 20px;}
+
+.ico-msg {font-size: 24px;color: #666;}
+
+.account-group {float: left;position: relative;padding: 20px 0;}
+
+.account-group .top {}
+
+.account-group .top .head-img {width: 40px;height: 40px;margin-right: 12px;float: left;}
+
+.account-group .top .head-img img {width: 40px;height: 40px; border-radius: 50%;}
+
+.account-group .top .head-info {float: left;}
+
+.account-group .top .head-info .title {font-size: 13px;margin-bottom: 5px;}
+
+.account-group .top .head-info .data {font-size: 12px;color: #999;}
+
+.account-group .top .head-info .data span {padding-right: 6px;margin-right: 6px;}
+
+.account-group .top .head-info .data span:first-child {border-right: 1px solid #ccc;}
+
+.account-group .top .arrowB {float: left;margin-top: 12px;color: #999;}
+
+.account-show {position: absolute;left: 16px;right: 0;top: 68px; background: #fff;box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .1);
+    border-radius: 3px; z-index: 999;display: none;}
+
+.account-show ul li {line-height: 20px;}
+
+.account-show ul li a {padding: 12px 24px;color: #666;display: block;}
+
+.ico-account {margin-right: 10px;}
+
+.account-show ul li a:hover { background-color: #fafafa;}
+
+.account-group:hover .account-show {display: block;}
+
+
+/*左侧栏*/
+.container-box {clear: both;width: 100%;min-height: 700px;padding: 10px 0 80px;}
+
+.sidebar {width: 230px;position: absolute;}
+
+.sidebar li {padding: 8px 20px 8px 60px;line-height: 50px;position: relative;}
+
+.sidebar li:before {content: '';position: absolute;bottom: 0;left: 98px;width: 43%;/* border-top: 1px solid #E4E8EB;*/}
+
+.sidebar li .menu-link {font-size: 20px;}
+
+.sidebar li .menu-link i {margin-right: 12px;font-size: 24px;color: #999;}
+
+.sidebar li .menu-sub-main {}
+
+.sidebar li .menu-sub-main li {padding: 0 0 0 36px;line-height: 36px;}
+
+.sidebar li .menu-sub-main li:before {border-top: none;}
+
+.sidebar li .menu-sub-main li a {font-size: 15px;}
+
+
+.sidebar li.cu .menu-link, .sidebar li.cu .menu-link i {color: #2196f3;}
+
+.sidebar li ul li.cu a {color: #2196f3;}
+
+
+/*右侧*/
+.main-content {margin-left: 230px;margin-top: 16px;}
+
+.main-inner {
+    /*width: 100%;*/
+    /*max-width: 1600px;*/
+    margin-left: auto;
+    margin-right: auto;}
+
+.main-title {font-size: 20px;padding-bottom: 24px;}
+
+.main-layout {background: #fff;min-height: 400px;}
+
+
+/*表单*/
+.layuiwdl-form{padding: 24px;}
+.layuiwdl-form>.layui-form-item>.required:after {
+    content: '*';
+    color: red;
+    position: absolute;
+    margin-left: 4px;
+    font-weight: bold;
+    line-height: 1.8em;
+    top: 6px;
+    right: 5px;
+}
+/*tab修改*/
+.layuiwdl-tab-card{}
+.layuiwdl-tab-card .layui-tab-title {
+    padding-left: 24px;
+    height: 36px;
+}
+.layuiwdl-tab-card .layui-tab-title li {
+    padding: 0 32px;
+    line-height: 36px;background: #e8e8e8;
+}
+.layuiwdl-tab-card .layui-tab-title .layui-this:after { height: 37px; }
+
+.layuiwdl-tab-card .layui-tab-title li.layui-this{background: #2196f3; color: #fff;}
+.layuiwdl-tab-card .layui-tab-title li:after{border-color: #e8e8e8;border-radius: 0;}
+.layuiwdl-tab-card .layui-tab-title li.layui-this:after{border-color: #2196f3;border-radius: 0;}
+
+
+.layui-elem-field .layui-form-item .layui-inline{
+    margin-right: 0;
+}

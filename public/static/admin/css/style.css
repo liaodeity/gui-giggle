@@ -1,0 +1,100 @@
+/*-----------------------------------
+*-------------------------------------------参数配置
+---------------------------------------------------*/
+
+.admin-form {padding: 24px;}
+.admin-form > .layui-form-item > .required:after {
+    content: '*';
+    color: red;
+    position: absolute;
+    margin-left: 4px;
+    font-weight: bold;
+    line-height: 1.8em;
+    top: 6px;
+    right: 5px;
+}
+.form-title{font-size: 14px;font-weight: bold;padding: 9px 15px;width: 164px;text-align: right;}
+/*.pl96{padding-left: 96px;}*/
+.admin-form-wd154 > .layui-form-item > .layui-form-label {
+    width: 154px !important;
+}
+.admin-form-wd154>.layui-form-item>.layui-input-block {
+    margin-left:184px !important;
+}
+.form-tips{font-size: 12px;color: #999;padding-top: 4px;}
+
+.templateItem{color: #2196f3; cursor: pointer;}
+
+/*弹窗-模板示例*/
+.site-main{padding: 24px;}
+.pop-temp-list{}
+.pop-temp-list li{line-height: 32px;}
+
+.temp-format{padding-left: 16px;}
+.temp-format-table{width: 640px;}
+.temp-format-table li{display: flex;flex-wrap: nowrap;align-items: flex-start;padding: 10px 0;border-top: 1px solid #D9D9D9;}
+.temp-format-table li .name{width: 92px;margin-right: 24px;}
+.temp-format-table li .info{flex: 1;}
+.info-list {padding: 10px 0;}
+.info-list dd{line-height: 24px;}
+.info-tips{ color: #999;}
+
+
+/*-----------------------------------
+*-------------------------------------------插件列表
+---------------------------------------------------*/
+.main-plug{padding: 24px;}
+.plug-title{padding-bottom: 16px;color: #666;}
+.flex-plug{ display: flex;flex-wrap: nowrap;align-items: center;border: 1px solid #D9D9D9; cursor: pointer;}
+.flex-plug:hover{border-color: #2196f3;}
+.flex-plug .ico-box{width: 94px;height: 94px;text-align: center;line-height: 94px;background: #85AECC;}
+.flex-plug .ico-box i{display: block;font-size: 42px;color: #F3F7FA;}
+.flex-plug .info-box {flex: 1;margin: 0 24px;}
+.flex-plug .info-box .title{font-size: 14px;padding-bottom: 5px;}
+.flex-plug .info-box .msg{font-size: 12px;color: #999;line-height: 20px;}
+.flex-plug .addRight{padding-right: 16px;}
+.flex-plug .addRight span{display: inline-block;margin-right: 24px;}
+.flex-plug .addRight i{display: inline-block;}
+
+.flex-plug .ico-box-bg76CAC3{background: #76CAC3;}
+
+/*右侧固定浮动窗口*/
+.float-online{position: fixed;right: 10px;bottom: 50px;}
+.float-online-main{position: relative;}
+.float-online-main .online-question{background: #E5E5E5;color: #666;writing-mode: tb;padding: 16px 10px;
+    border-radius: 5px;position: relative;}
+.float-online-main .online-question:after{content: ''; position: absolute;left: -20px;top: 0; width: 20px;height: 100%;
+
+}
+.float-online-main .online-question i{margin-bottom: 5px;}
+.float-online-main .online-question span{line-height: 24px;letter-spacing: 5px;font-size: 13px;}
+
+.online-question-show{position: absolute;right: 54px;top: 0; width: 152px;padding: 0 16px;
+    background: #fff;box-shadow: 0 1px 20px rgba(0,0,0,.2); display: none;}
+.online-question-show li{padding: 16px 0;}
+.online-question-show li:not(:last-child){border-bottom: 1px solid #D9D9D9;}
+.online-question-show li .top{padding-bottom: 5px;overflow: hidden;}
+.online-question-show li .top i{float: right;font-size: 12px;margin-top: 4px;}
+.online-question-show li .top .title{float: left;}
+.online-question-show li .info{font-size: 12px;color: #999;}
+.float-online-main:hover .online-question-show{display: block;}
+
+
+/*-----------------------------------
+*-------------------------------------------订单管理
+---------------------------------------------------*/
+
+.main-order{padding: 24px;}
+.main-order .layui-elem-field legend{font-size: 18px;}
+.main-order .layui-form-item{margin-bottom: 0;}
+
+.order-content{margin-top: 24px;}
+.layui-tab-content{border: 1px solid #fff;margin: -1px;}
+
+
+
+
+
+
+
+
