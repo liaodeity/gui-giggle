@@ -13,7 +13,6 @@ class InitSeeder extends Seeder
     public function run ()
     {
         $this->call (SystemSeeder::class);
-        //$this->call (ItemSeeder::class);
         $this->call (MenuSeeder::class);
         $this->call (ConfigSeeder::class);
     }
