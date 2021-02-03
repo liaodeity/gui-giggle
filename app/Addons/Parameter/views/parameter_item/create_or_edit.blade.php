@@ -102,6 +102,7 @@
                 , systemGui = layui.systemGui
                 , laydate = layui.laydate;
             LayerPageIndex = layer.index;
+            element.render();
             form.render();
             //监听提交
 

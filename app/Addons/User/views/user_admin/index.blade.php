@@ -17,27 +17,30 @@
                                 <div class="layui-input-inline">
                                     <input type="text" name="user_admins[user_id]" autocomplete="off" class="layui-input">
                                 </div>
-                            </div><div class="layui-inline">
+                            </div>
+                            <div class="layui-inline">
                                 <label class="layui-form-label">登录名称</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="user_admins[username]" autocomplete="off" class="layui-input">
                                 </div>
-                            </div><div class="layui-inline">
+                            </div>
+                            <div class="layui-inline">
                                 <label class="layui-form-label">密码</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="user_admins[password]" autocomplete="off" class="layui-input">
                                 </div>
-                            </div><div class="layui-inline">
-                        <label class="layui-form-label">状态</label>
-                        <div class="layui-input-inline">
-                            <select name="user_admins[status]" lay-filter="status">
-                                <option value=""></option>
-                                @foreach($userAdmin->statusItem() as $ind=>$val)
-                                <option value="{{$ind}}">{{$val}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">状态</label>
+                                <div class="layui-input-inline">
+                                    <select name="user_admins[status]" lay-filter="status">
+                                        <option value=""></option>
+                                        @foreach($userAdmin->statusItem() as $ind=>$val)
+                                            <option value="{{$ind}}">{{$val}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="layui-inline">
                                 <button type="submit" class="layui-btn layui-btn-primary" lay-submit
                                         lay-filter="data-search-btn"><i
@@ -82,13 +85,15 @@
 
 @section('footer')
     <script>
-        layui.use(['form', 'table', 'laydate', 'systemGui'], function () {
+        layui.use(['element', 'form', 'table', 'laydate', 'systemGui'], function () {
             var $ = layui.jquery,
+                element = layui.element,
                 form = layui.form,
                 table = layui.table,
                 miniPage = layui.miniPage,
                 systemGui = layui.systemGui,
                 laydate = layui.laydate;
+            element.render();
             form.render();
 
 
@@ -111,13 +116,13 @@
                 }],
                 cols: [[
                     {type: "checkbox", width: 50, fixed: "left"},
-                   {field: 'id', title: '编号', sort: true,hide:true},
-{field: 'user_id', title: '所属用户', sort: true,hide:false},
-{field: 'username', title: '登录名称', sort: true,hide:false},
-{field: 'password', title: '密码', sort: true,hide:false},
-{field: '_status', title: '状态', sort: true,hide:false},
-{field: 'created_at', title: '创建时间', sort: true,hide:false},
-{field: 'updated_at', title: '更新时间', sort: true,hide:true},
+                    {field: 'id', title: '编号', sort: true, hide: true},
+                    {field: 'user_id', title: '所属用户', sort: true, hide: false},
+                    {field: 'username', title: '登录名称', sort: true, hide: false},
+                    {field: 'password', title: '密码', sort: true, hide: false},
+                    {field: '_status', title: '状态', sort: true, hide: false},
+                    {field: 'created_at', title: '创建时间', sort: true, hide: false},
+                    {field: 'updated_at', title: '更新时间', sort: true, hide: true},
 
                     {
                         title: '{{__('message.buttons.operate')}}',
@@ -157,17 +162,6 @@
                 data = checkStatus.data;
                 switch (obj.event) {
                     case 'create':
-                        systemGui.openIFrame(SYSTEM_GUI.ROUTE_PREFIX + '');
-                        // layer.open({
-                        //     type: 2 //Page层类型
-                        //     ,area: ['500px', '300px']
-                        //     ,title: false
-                        //     ,shade: 0.6 //遮罩透明度
-                        //     ,maxmin: false //允许全屏最小化
-                        //     ,anim: 1 //0-6的动画形式，-1不开启
-                        //     ,content: 'https://layer.layui.com/'
-                        // });
-
                         break;
                     case 'delete':
                         //先获取数据，判断是否已选中数据
@@ -195,10 +189,10 @@
                 var data = obj.data;
                 switch (obj.event) {
                     case 'edit':
-                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
+                        // systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
                         break;
                     case 'show':
-                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
+                        // systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
                         break;
                     case 'delete':
                         systemGui.deleteRaw('{{__('message.confirms.delete',['name'=>''])}}', data._delete_url);

@@ -99,8 +99,7 @@
     </div>
     <script type="text/html" id="toolbarDemo">
         <div class="layui-btn-container">
-            <a href="{{url('admin/menu/create')}}" class="layui-btn layui-btn-sm data-add-btn"
-               lay-event="create"> {{__('message.buttons.create')}}
+            <a href="{{url('admin/menu/create')}}" class="layui-btn layui-btn-sm data-add-btn"> {{__('message.buttons.create')}}
             </a>
             <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn"
                     lay-event="delete"> {{__('message.buttons.delete')}}
@@ -109,10 +108,10 @@
     </script>
     <script type="text/html" id="operateTableBar">
         @{{# if (d._show_url) { }}
-        <a class="layui-btn layui-btn-xs data-count-show" href="@{{d._show_url}}" lay-event="show">{{__('message.buttons.show')}}</a>
+        <a class="layui-btn layui-btn-xs data-count-show" href="@{{d._show_url}}">{{__('message.buttons.show')}}</a>
         @{{# } }}
         @{{# if (d._edit_url) { }}
-        <a class="layui-btn layui-btn-xs data-count-edit" href="@{{d._edit_url}}" lay-event="edit">{{__('message.buttons.edit')}}</a>
+        <a class="layui-btn layui-btn-xs data-count-edit" href="@{{d._edit_url}}" >{{__('message.buttons.edit')}}</a>
         @{{# } }}
         @{{# if (d._delete_url) { }}
         <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">{{__('message.buttons.delete')}}</a>
@@ -125,10 +124,12 @@
     <script>
         layui.use ([ 'table', 'treetable','systemGui' ], function () {
             var $ = layui.jquery;
+            element = layui.element;
             form = layui.form;
             var table = layui.table;
             var treetable = layui.treetable;
             var systemGui = layui.systemGui;
+            element.render();
             form.render();
             // 渲染表格
             layer.load (2);

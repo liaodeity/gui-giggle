@@ -49,8 +49,7 @@
     </div>
     <script type="text/html" id="toolbarDemo">
         <div class="layui-btn-container">
-            <a href="{{url('admin/parameter/create')}}" class="layui-btn layui-btn-sm data-add-btn"
-               lay-event="create"> {{__('message.buttons.create')}}
+            <a href="{{url('admin/parameter/create')}}" class="layui-btn layui-btn-sm data-add-btn"> {{__('message.buttons.create')}}
             </a>
             <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn"
                     lay-event="delete"> {{__('message.buttons.delete')}}
@@ -74,11 +73,13 @@
     <script>
         layui.use(['form', 'table', 'laydate', 'systemGui'], function () {
             var $ = layui.jquery,
+                element = layui.element,
                 form = layui.form,
                 table = layui.table,
                 miniPage = layui.miniPage,
                 systemGui = layui.systemGui,
                 laydate = layui.laydate;
+            element.render();
             form.render();
 
 
@@ -146,16 +147,6 @@
                 data = checkStatus.data;
                 switch (obj.event) {
                     case 'create':
-                        systemGui.openIFrame(SYSTEM_GUI.ROUTE_PREFIX + '');
-                        // layer.open({
-                        //     type: 2 //Page层类型
-                        //     ,area: ['500px', '300px']
-                        //     ,title: false
-                        //     ,shade: 0.6 //遮罩透明度
-                        //     ,maxmin: false //允许全屏最小化
-                        //     ,anim: 1 //0-6的动画形式，-1不开启
-                        //     ,content: 'https://layer.layui.com/'
-                        // });
 
                         break;
                     case 'delete':
@@ -184,10 +175,8 @@
                 var data = obj.data;
                 switch (obj.event) {
                     case 'edit':
-                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
                         break;
                     case 'show':
-                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
                         break;
                     case 'delete':
                         systemGui.deleteRaw('{{__('message.confirms.delete',['name'=>''])}}', data._delete_url);

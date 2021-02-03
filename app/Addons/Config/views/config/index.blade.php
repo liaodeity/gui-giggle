@@ -67,10 +67,10 @@
     </script>
     <script type="text/html" id="operateTableBar">
         @{{# if (d._show_url) { }}
-        <a class="layui-btn layui-btn-xs data-count-show" href="@{{d._show_url}}" lay-event="show">{{__('message.buttons.show')}}</a>
+        <a class="layui-btn layui-btn-xs data-count-show" href="@{{d._show_url}}">{{__('message.buttons.show')}}</a>
         @{{# } }}
         @{{# if (d._edit_url) { }}
-        <a class="layui-btn layui-btn-xs data-count-edit" href="@{{d._edit_url}}" lay-event="edit">{{__('message.buttons.edit')}}</a>
+        <a class="layui-btn layui-btn-xs data-count-edit" href="@{{d._edit_url}}">{{__('message.buttons.edit')}}</a>
         @{{# } }}
     </script>
 @endsection
@@ -79,11 +79,13 @@
     <script>
         layui.use(['form', 'table', 'laydate', 'systemGui'], function () {
             var $ = layui.jquery,
+                element = layui.element,
                 form = layui.form,
                 table = layui.table,
                 miniPage = layui.miniPage,
                 systemGui = layui.systemGui,
                 laydate = layui.laydate;
+            element.render();
             form.render();
 
 
@@ -151,16 +153,6 @@
                 data = checkStatus.data;
                 switch (obj.event) {
                     case 'create':
-                        systemGui.openIFrame(SYSTEM_GUI.ROUTE_PREFIX + '');
-                        // layer.open({
-                        //     type: 2 //Page层类型
-                        //     ,area: ['500px', '300px']
-                        //     ,title: false
-                        //     ,shade: 0.6 //遮罩透明度
-                        //     ,maxmin: false //允许全屏最小化
-                        //     ,anim: 1 //0-6的动画形式，-1不开启
-                        //     ,content: 'https://layer.layui.com/'
-                        // });
 
                         break;
                     case 'delete':
@@ -189,10 +181,10 @@
                 var data = obj.data;
                 switch (obj.event) {
                     case 'edit':
-                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
+                        // systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
                         break;
                     case 'show':
-                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
+                        // systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
                         break;
                     case 'delete':
                         systemGui.deleteRaw('{{__('message.confirms.delete',['name'=>''])}}', data._delete_url);

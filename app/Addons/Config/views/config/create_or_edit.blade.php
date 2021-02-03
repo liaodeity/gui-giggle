@@ -92,7 +92,7 @@
 @endsection
 
 @section('footer')
-    @include('common/ueditor',['name'=>'content'])
+{{--    @include('common/ueditor',['name'=>'content'])--}}
     <script type="text/javascript">
         layui.use(['element', 'form', 'jquery', 'layedit', 'laydate', 'systemGui'], function () {
             var form = layui.form
@@ -103,6 +103,7 @@
                 , systemGui = layui.systemGui
                 , laydate = layui.laydate;
             LayerPageIndex = layer.index;
+            element.render();
             form.render();
             //监听提交
             //发布时间

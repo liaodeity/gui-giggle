@@ -1,3 +1,5 @@
+import common from "./common";
+
 require('./bootstrap');
 window.jQuery = require("jquery");
 jQuery.noConflict();
@@ -28,6 +30,16 @@ if ($.support.pjax) {
         // window.location.hash = window.location.hash + '?='+Math.random()
     });
 }
+
+if ($("#nav-menu").length) {
+    //切换菜单的时候，选中
+    $("#nav-menu a").click(function () {
+        $("#nav-menu li").removeClass('cu')
+        $(this).parent('li').addClass('cu');
+    })
+}
+import commonFun from './common';
+window.$common = commonFun;
 
 // user = require('./admin/user');
 // console.log(user);

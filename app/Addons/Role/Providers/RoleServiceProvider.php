@@ -60,6 +60,7 @@ class RoleServiceProvider extends ServiceProvider
             addons_path ('Role/assets') => public_path('vendor/role'),
         ], 'public');
         #php artisan vendor:publish --tag=public --force
+        $this->loadMigrationsFrom (addons_path ('Role/migrations'));
 
 
         $this->loadTranslationsFrom(addons_path ('Role/lang'), 'role');
