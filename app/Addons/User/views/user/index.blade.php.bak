@@ -44,16 +44,16 @@
                                            class="layui-input">
                                 </div>
                             </div><div class="layui-inline">
-                                <label class="layui-form-label">性别</label>
-                                <div class="layui-input-inline">
-                                    <select name="users[gender]" lay-filter="gender">
-                                        <option value=""></option>
-                                        @foreach($user->genderItem() as $ind=>$val)
-                                            <option value="{{$ind}}">{{$val}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div><div class="layui-inline">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-inline">
+                            <select name="users[gender]" lay-filter="gender">
+                                <option value=""></option>
+                                @foreach($user->genderItem() as $ind=>$val)
+                                <option value="{{$ind}}">{{$val}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><div class="layui-inline">
                                 <label class="layui-form-label">注册时间</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="users[reg_date]" id="index_reg_date" readonly placeholder="选择日期范围" autocomplete="off"
@@ -86,16 +86,16 @@
                 </div>
             </fieldset>
             <div class="layui-tab order-content layuiwdl-tab-card">
-                <div class="layui-tab-item layui-show">
-                    <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
-                </div>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+                    </div>
             </div>
         </div>
     </div>
     <script type="text/html" id="toolbarDemo">
         <div class="layui-btn-container">
             <a href="{{url('admin/user/create')}}" class="layui-btn layui-btn-sm data-add-btn"
-               > {{__('message.buttons.create')}}
+               lay-event="create"> {{__('message.buttons.create')}}
             </a>
             <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn"
                     lay-event="delete"> {{__('message.buttons.delete')}}
@@ -104,10 +104,10 @@
     </script>
     <script type="text/html" id="operateTableBar">
         @{{# if (d._show_url) { }}
-        <a class="layui-btn layui-btn-xs data-count-show" href="@{{d._show_url}}" >{{__('message.buttons.show')}}</a>
+        <a class="layui-btn layui-btn-xs data-count-show" href="@{{d._show_url}}" lay-event="show">{{__('message.buttons.show')}}</a>
         @{{# } }}
         @{{# if (d._edit_url) { }}
-        <a class="layui-btn layui-btn-xs data-count-edit" href="@{{d._edit_url}}" >{{__('message.buttons.edit')}}</a>
+        <a class="layui-btn layui-btn-xs data-count-edit" href="@{{d._edit_url}}" lay-event="edit">{{__('message.buttons.edit')}}</a>
         @{{# } }}
         @{{# if (d._delete_url) { }}
         <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">{{__('message.buttons.delete')}}</a>
@@ -117,17 +117,15 @@
 
 @section('footer')
     <script>
-        layui.use(['element','form', 'table', 'laydate', 'systemGui'], function () {
+        layui.use(['form', 'table', 'laydate', 'systemGui'], function () {
             var $ = layui.jquery,
-                element = layui.element,
                 form = layui.form,
                 table = layui.table,
                 miniPage = layui.miniPage,
                 systemGui = layui.systemGui,
                 laydate = layui.laydate;
             form.render();
-            element.render()
-            //出生日期
+//出生日期
             laydate.render({
                 elem: '#index_birthday',
                 trigger: 'click',
@@ -158,20 +156,20 @@
                 }],
                 cols: [[
                     {type: "checkbox", width: 50, fixed: "left"},
-                    {field: 'id', title: '编号', sort: true,hide:true},
-                    {field: 'user_no', title: '用户编号', sort: true,hide:false},
-                    {field: 'mobile', title: '用户手机号', sort: true,hide:false},
-                    {field: 'email', title: '用户邮箱', sort: true,hide:false},
-                    {field: 'nickname', title: '昵称', sort: true,hide:false},
-                    {field: 'birthday', title: '出生日期', sort: true,hide:false},
-                    {field: 'gender', title: '性别', sort: true,hide:false},
-                    {field: 'reg_date', title: '注册时间', sort: true,hide:false},
-                    {field: 'real_name', title: '真实姓名', sort: true,hide:false},
-                    {field: 'id_number', title: '身份证号', sort: true,hide:false},
-                    {field: 'live_address', title: '居住地址', sort: true,hide:false},
-                    {field: 'deleted_at', title: 'DELETED_AT', sort: true,hide:false},
-                    {field: 'created_at', title: '创建时间', sort: true,hide:false},
-                    {field: 'updated_at', title: '更新时间', sort: true,hide:true},
+                   {field: 'id', title: '编号', sort: true,hide:true},
+{field: 'user_no', title: '用户编号', sort: true,hide:false},
+{field: 'mobile', title: '用户手机号', sort: true,hide:false},
+{field: 'email', title: '用户邮箱', sort: true,hide:false},
+{field: 'nickname', title: '昵称', sort: true,hide:false},
+{field: 'birthday', title: '出生日期', sort: true,hide:false},
+{field: 'gender', title: '性别', sort: true,hide:false},
+{field: 'reg_date', title: '注册时间', sort: true,hide:false},
+{field: 'real_name', title: '真实姓名', sort: true,hide:false},
+{field: 'id_number', title: '身份证号', sort: true,hide:false},
+{field: 'live_address', title: '居住地址', sort: true,hide:false},
+{field: 'deleted_at', title: 'DELETED_AT', sort: true,hide:false},
+{field: 'created_at', title: '创建时间', sort: true,hide:false},
+{field: 'updated_at', title: '更新时间', sort: true,hide:true},
 
                     {
                         title: '{{__('message.buttons.operate')}}',
@@ -211,7 +209,7 @@
                 data = checkStatus.data;
                 switch (obj.event) {
                     case 'create':
-                        // systemGui.openIFrame(SYSTEM_GUI.ROUTE_PREFIX + '');
+                        systemGui.openIFrame(SYSTEM_GUI.ROUTE_PREFIX + '');
                         // layer.open({
                         //     type: 2 //Page层类型
                         //     ,area: ['500px', '300px']
@@ -249,10 +247,10 @@
                 var data = obj.data;
                 switch (obj.event) {
                     case 'edit':
-                        // systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
+                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id + '/edit');
                         break;
                     case 'show':
-                        // systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
+                        systemGui.getHrefContentOpen(SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id);
                         break;
                     case 'delete':
                         systemGui.deleteRaw('{{__('message.confirms.delete',['name'=>''])}}', data._delete_url);

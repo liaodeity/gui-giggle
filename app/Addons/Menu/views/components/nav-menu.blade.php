@@ -8,7 +8,7 @@
                 <ul class="menu-sub-main">
                     @foreach($menu['child'] as $child)
                         <li class="{{$child['active']}}-nav" >
-                            <a data-id="{{$child['id']}}" href="{{url($child['href'] ?? '')}}">
+                            <a data-id="{{$child['id']}}" data-pjax href="{{url($child['href'] ?? '')}}">
                                 <span>{{$child['title'] ?? ''}}</span>
                             </a>
                         </li>

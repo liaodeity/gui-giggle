@@ -80,11 +80,6 @@ layui.define(["element", "jquery"], function (exports) {
         },
         //更新或创建
         createOrUpdate: function (data, method, _url) {
-            // if (method === 'PUT') {
-            //      = SYSTEM_GUI.ROUTE_PREFIX + '/' + data.id;
-            // } else {
-            //     _url = SYSTEM_GUI.ROUTE_PREFIX;
-            // }
             data._method = method;
             $.ajax({
                 type: 'POST',
@@ -109,9 +104,13 @@ layui.define(["element", "jquery"], function (exports) {
                     if (data.code === 0) {
                         layer.msg(data.message, {icon: 6, time: GUI_LANG.SUCCESS_TIME, shade: 0.2});
                         if(data.url){
-                            setTimeout(function () {
-                                location.href = data.url
-                            }, GUI_LANG.SUCCESS_TIME);
+                            if($('#pjax-container').length){
+                                $.pjax({url: data.url, container: '#pjax-container'})
+                            }else{
+                                setTimeout(function () {
+                                    location.href = data.url
+                                }, GUI_LANG.SUCCESS_TIME);
+                            }
                         }else{
                             setTimeout(function () {
                                 $('button[lay-filter="data-search-btn"]').click();//刷新列表

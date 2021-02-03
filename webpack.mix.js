@@ -11,7 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+if(mix.inProduction()){
+    mix.setPublicPath('public/dist');
+    mix.setResourceRoot('/dist');
+    mix.version();
+}else{
+    mix.setPublicPath('public/build');
+    mix.setResourceRoot('/build');
+}
+
+
+mix.js('resources/js/admin.js', 'js').extract(['axios','jquery','jquery-pjax','nprogress']);
+mix.sass('resources/css/admin/app.scss', 'css/admin').sass('resources/css/admin/vendor.scss', 'css/admin');

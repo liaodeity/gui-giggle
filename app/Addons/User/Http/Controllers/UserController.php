@@ -131,7 +131,7 @@ class UserController extends Controller
             $user   = $this->repository->create ($input);
             $result = $this->repository->transformerItem ($user, new UserTransformer);
 
-            return ajax_success_message (__ ('message.controller.success.create'), $result);
+            return ajax_success_message (__ ('message.controller.success.create'), $result, url('admin/user/'.$user->id));
         } catch (SystemGuiException $e) {
             return ajax_error_message ($e->getMessage ());
         }
@@ -183,7 +183,7 @@ class UserController extends Controller
             $user   = $this->repository->update ($input, $id);
             $result = $this->repository->transformerItem ($user, new UserTransformer);
 
-            return ajax_success_message (__ ('message.controller.success.update'), $result);
+            return ajax_success_message (__ ('message.controller.success.update'), $result, url('admin/user/'.$user->id));
         } catch (SystemGuiException $e) {
             return ajax_error_message ($e->getMessage ());
         }

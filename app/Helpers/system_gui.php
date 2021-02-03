@@ -120,9 +120,9 @@ if (!function_exists ('get_db_parameter')) {
      */
     function get_db_parameter ($model, $name, $ind = 'all', $html = false)
     {
-        $M = app($model);
-        $tabName = $M->getTable();
-        $field = \App\Models\SystemGui\Field::where('tab_name', $tabName)->where('field_name',  $name)->first();
+        $M       = app ($model);
+        $tabName = $M->getTable ();
+        $field   = \App\Models\SystemGui\Field::where ('tab_name', $tabName)->where ('field_name', $name)->first ();
         //var_dump($field);
         //
         //$parameter = \App\Addons\Parameter\Models\Parameter::where ('name', $name)
@@ -133,7 +133,7 @@ if (!function_exists ('get_db_parameter')) {
         }
         // 获取参数列表内容，请进行缓存处理
         //$items    = $parameter->parameterItems ();
-        $items = $field->fieldItems();
+        $items    = $field->fieldItems ();
         $list     = $items->where ('status', 1)->orderBy ('sort', 'DESC')->get ();
         $arr      = [];
         $colorArr = [];
@@ -300,20 +300,20 @@ if (!function_exists ('array_null_to_string')) {
      */
     function array_null_to_string (&$data, $key = null)
     {
-        if(is_null ($key)){
-            foreach ($data as $key => $item){
+        if (is_null ($key)) {
+            foreach ($data as $key => $item) {
                 if (array_key_exists ($key, $data) && is_null ($data[ $key ])) {
                     $data[ $key ] = '';
                 }
             }
-        }else{
+        } else {
             if (array_key_exists ($key, $data) && is_null ($data[ $key ])) {
                 $data[ $key ] = '';
             }
         }
     }
 }
-if (!function_exists ('file_size_format_unit')){
+if (!function_exists ('file_size_format_unit')) {
     /**
      * 格式化文件大小单位 add by gui
      * @param $size
@@ -330,3 +330,17 @@ if (!function_exists ('file_size_format_unit')){
     }
 }
 
+if (!function_exists ('mix_build_dist')) {
+    /**
+     * mix资源路径 add by gui
+     * @param $path
+     * @return \Illuminate\Support\HtmlString|string
+     * @throws Exception
+     */
+    function mix_build_dist ($path)
+    {
+        $dir = config ('app.debug') ? 'build' : 'dist';
+
+        return mix ($path, $dir);
+    }
+}

@@ -21,7 +21,7 @@ class UserValidator extends LiaoValidator
             'user_no'  => 'required',
             'mobile'   => 'required',
             'nickname' => 'required',
-            'password' => 'required',
+            //'password' => 'required',
             'birthday' => 'required',
             'gender'   => 'required',
             'reg_date' => 'required',
