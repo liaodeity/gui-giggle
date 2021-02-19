@@ -3,7 +3,7 @@
 |-----------------------------------------------------------------------------------------------------------
 | gui-giggle [ 简单高效的开发插件系统 ]
 |-----------------------------------------------------------------------------------------------------------
-| Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+| Licensed ( MIT )
 | ----------------------------------------------------------------------------------------------------------
 | Copyright (c) 2014-2021 https://github.com/liaodeity/gui-giggle All rights reserved.
 | ----------------------------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 //
 Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/', 'ConsoleController@index');
-    Route::post ('uploads/editor','SystemGui\UploadController@image')->name('admin_upload_editor');
+    Route::post ('uploads/editor','UploadController@image')->name('admin_upload_editor');
     Route::group (['prefix' => 'console'], function () {
         Route::get('/', 'ConsoleController@index')->name('admin-index');
         //Route::get ('/', 'ConsoleController@index');

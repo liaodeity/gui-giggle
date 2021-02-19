@@ -3,7 +3,7 @@
 |-----------------------------------------------------------------------------------------------------------
 | gui-giggle [ 简单高效的开发插件系统 ]
 |-----------------------------------------------------------------------------------------------------------
-| Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+| Licensed ( MIT )
 | ----------------------------------------------------------------------------------------------------------
 | Copyright (c) 2014-2021 https://github.com/liaodeity/gui-giggle All rights reserved.
 | ----------------------------------------------------------------------------------------------------------
@@ -27,11 +27,11 @@ class ModuleValidator extends LiaoValidator
     protected $rules = [
         self::RULE_CREATE => [
             'name'=>'required',
-			
+
         ],
         self::RULE_UPDATE => [
             'name'=>'required',
-			
+
         ],
     ];
     protected $attributes = [
@@ -39,6 +39,6 @@ class ModuleValidator extends LiaoValidator
 		'name'=>'模块名称',
 		'created_at'=>'创建时间',
 		'updated_at'=>'更新时间',
-		
+
     ];
 }

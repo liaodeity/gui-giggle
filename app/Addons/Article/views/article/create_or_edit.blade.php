@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="layui-fluid">
-        <x-menu-breadcrumb-path :menuId="$menuActiveId"/>
+        <x-menu-breadcrumb-path :menuId="$menuActiveId" />
         <div class="system-gui-main bg-white system-gui-add">
             <form class="layui-form" action="" lay-filter="currentForm" onsubmit="return false;">
                 <div class="layui-tab layui-tab-brief">
@@ -12,16 +12,16 @@
                     <div class="fr page-a-link">
                         <span class="layui-breadcrumb" lay-separator="|">
                         @if(isset($article->id))
-                          <a class="btn-link" href="{{url('admin/article/create')}}">前往添加</a>
-                          <a class="btn-link" href="{{url('admin/article/'.$article->id)}}">前往查看</a>
+                          <a class="btn-link" href="{{url('admin/article/create')}}">{{__('message.tab.go_create')}}</a>
+                          <a class="btn-link" href="{{url('admin/article/'.$article->id)}}">{{__('message.tab.go_view')}}</a>
                           @else
-                          <a class="btn-link" href="{{url('admin/article')}}">返回列表</a>
+                          <a class="btn-link" href="{{url('admin/article')}}">{{__('message.tab.back_list')}}</a>
                         @endif
                         </span>
                     </div>
 
                     <ul class="layui-tab-title">
-                        <li class="layui-this">基本信息</li>
+                        <li class="layui-this">{{__('message.tab.base_info')}}</li>
                     </ul>
                     <div class="layui-tab-content">
                         <div class="layui-tab-item layui-show">
@@ -31,7 +31,7 @@
                             <div class="layui-form-item">
                     <label class="layui-form-label">所属分类 <span class="color-red"></span></label>
                     <div class="layui-input-block">
-                        <input type="text" name="Article[category_id]" value="{{$article->category_id ?? ''}}" maxlength="36" autocomplete="off"
+                        <input type="text" name="Article[category_id]" value="{{$article->category_id ?? ''}}" maxlength="" autocomplete="off"
                                placeholder=""
                                class="layui-input">
                     </div>
@@ -39,12 +39,13 @@
 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">标题 <span class="color-red"></span></label>
                     <div class="layui-input-block">
-                        <textarea placeholder="" class="layui-textarea" name="Article[title]" maxlength="200" >{{$article->title ?? ''}}</textarea>
+                        <div id="titleEditor">{!! $article->title ?? '' !!}</div>
+                        <textarea placeholder="" id="titleTextarea" class="layui-textarea layui-hide" name="Article[title]" maxlength="200" >{!! $article->title ?? '' !!}</textarea>
                     </div>
                 </div><div class="layui-form-item">
                     <label class="layui-form-label">封面图片 <span class="color-red"></span></label>
                     <div class="layui-input-block">
-                        <input type="text" name="Article[cover_id]" value="{{$article->cover_id ?? ''}}" maxlength="36" autocomplete="off"
+                        <input type="text" name="Article[cover_id]" value="{{$article->cover_id ?? ''}}" maxlength="" autocomplete="off"
                                placeholder=""
                                class="layui-input">
                     </div>
@@ -92,12 +93,14 @@
                 </div><div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">简要描述 <span class="color-red"></span></label>
                     <div class="layui-input-block">
-                        <textarea placeholder="" class="layui-textarea" name="Article[description]" maxlength="500" >{{$article->description ?? ''}}</textarea>
+                        <div id="descriptionEditor">{!! $article->description ?? '' !!}</div>
+                        <textarea placeholder="" id="descriptionTextarea" class="layui-textarea layui-hide" name="Article[description]" maxlength="500" >{!! $article->description ?? '' !!}</textarea>
                     </div>
                 </div><div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">内容 <span class="color-red"></span></label>
                     <div class="layui-input-block">
-                        <textarea placeholder="" class="layui-textarea" name="Article[content]" maxlength="4294967295" >{{$article->content ?? ''}}</textarea>
+                        <div id="contentEditor">{!! $article->content ?? '' !!}</div>
+                        <textarea placeholder="" id="contentTextarea" class="layui-textarea layui-hide" name="Article[content]" maxlength="4294967295" >{!! $article->content ?? '' !!}</textarea>
                     </div>
                 </div><div class="layui-form-item">
                     <div class="layui-inline">
@@ -110,7 +113,7 @@
                 </div><div class="layui-form-item">
                     <label class="layui-form-label">发布人 <span class="color-red"></span></label>
                     <div class="layui-input-block">
-                        <input type="text" name="Article[user_id]" value="{{$article->user_id ?? ''}}" maxlength="36" autocomplete="off"
+                        <input type="text" name="Article[user_id]" value="{{$article->user_id ?? ''}}" maxlength="" autocomplete="off"
                                placeholder=""
                                class="layui-input">
                     </div>
@@ -129,7 +132,7 @@
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block  padding-bottom-15">
-                        <button class="layui-btn" lay-submit="" lay-filter="form{{$_method}}">立即提交</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="form{{$_method}}">{{__('message.buttons.save_submit')}}</button>
                     </div>
                 </div>
             </form>
@@ -138,7 +141,7 @@
 @endsection
 
 @section('footer')
-    @include('common/ueditor',['name'=>'content'])
+    @include('common/ueditor',['name'=>'content','access' => $article])
     <script type="text/javascript">
         layui.use(['element', 'form', 'jquery', 'layedit', 'laydate', 'systemGui'], function () {
             var form = layui.form
@@ -155,9 +158,9 @@
 
             //发布时间
             laydate.render({
-                elem: '#release_at',
-                type: 'date',
-                trigger: 'click'
+                elem: '#release_at'
+                ,type: 'date'
+                ,trigger: 'click'
             });
 
             //新建

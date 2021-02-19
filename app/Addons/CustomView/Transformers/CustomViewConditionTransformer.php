@@ -3,7 +3,7 @@
 |-----------------------------------------------------------------------------------------------------------
 | gui-giggle [ 简单高效的开发插件系统 ]
 |-----------------------------------------------------------------------------------------------------------
-| Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+| Licensed ( MIT )
 | ----------------------------------------------------------------------------------------------------------
 | Copyright (c) 2014-2021 https://github.com/liaodeity/gui-giggle All rights reserved.
 | ----------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ class CustomViewConditionTransformer extends TransformerAbstract
 			'data_value' => $customViewCondition->data_value,
 			'created_at' => $customViewCondition->created_at ? $customViewCondition->created_at->format ('Y-m-d H:i:s') : null,
 			'updated_at' => $customViewCondition->updated_at ? $customViewCondition->updated_at->format ('Y-m-d H:i:s') : null,
-			
+
             '_show_url'  => url ('admin/custom_view_condition/' . $customViewCondition->id),
             '_edit_url'  => url ('admin/custom_view_condition/' . $customViewCondition->id . '/edit'),
             '_delete_url'  => url ('admin/custom_view_condition/' . $customViewCondition->id . '/edit'),

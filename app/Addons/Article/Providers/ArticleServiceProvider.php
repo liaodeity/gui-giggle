@@ -3,11 +3,11 @@
 |-----------------------------------------------------------------------------------------------------------
 | gui-giggle [ 简单高效的开发插件系统 ]
 |-----------------------------------------------------------------------------------------------------------
-| Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+| Licensed ( MIT )
 | ----------------------------------------------------------------------------------------------------------
 | Copyright (c) 2014-2021 https://github.com/liaodeity/gui-giggle All rights reserved.
 | ----------------------------------------------------------------------------------------------------------
-| Author: Gui < liaodeity@gmail.com >
+| Author: 廖春贵 < liaodeity@gmail.com >
 |-----------------------------------------------------------------------------------------------------------
 */
 namespace App\Addons\Article\Providers;
@@ -50,8 +50,6 @@ class ArticleServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom(addons_path ('Article/config/article.php'),'article');
-        //$this->publishes([addons_path ('Article/config/article.php') => config_path('article.php')], 'article');
-        #php artisan vendor:publish --tag=article --force
 
         $this->loadMigrationsFrom (addons_path ('Article/migrations'));
 

@@ -72,6 +72,7 @@
 <script type="text/javascript" charset="utf-8" src="{{asset('static/umeditor/umeditor.config.js')}}"></script>
 <script type="text/javascript" charset="utf-8" src="{{asset('static/umeditor/umeditor.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('static/webuploader/webuploader.min.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/wangeditor@4.6.6/dist/wangEditor.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $.ajaxSetup({
@@ -83,6 +84,7 @@
     layui.use('element', function () {
         var element = layui.element;
     })
+    const WE = window.wangEditor;
 </script>
 @yield('footer')
 {{--百度统计--}}
