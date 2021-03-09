@@ -10,22 +10,29 @@
 | Author: Gui < liaodeity@gmail.com >
 |-----------------------------------------------------------------------------------------------------------
 */
+namespace App\Addons\Login\Validators;
 
-namespace App\Addons\Login\Transformers;
+use App\Validators\LiaoValidator;
 
-
-use App\Addons\Login\Models\Login;
-use League\Fractal\TransformerAbstract;
-
-class LoginTransformer extends TransformerAbstract
+/**
+ * Class LoginValidator.
+ * @package Addons\Login\Validators;
+ */
+class LoginValidator extends LiaoValidator
 {
-    public function transform (Login $login)
-    {
-        return [
-            '_show_url'  => url ('admin/login/' . $login->id),
-            '_edit_url'  => url ('admin/login/' . $login->id . '/edit'),
-            '_delete_url'  => url ('admin/login/' . $login->id . '/edit'),
-            '_batch_delete' => url ('admin/login/delete/batch')
-        ];
-    }
+    /**
+     * Validation Rules
+     * @var array
+     */
+    protected $rules = [
+        self::RULE_CREATE => [
+
+        ],
+        self::RULE_UPDATE => [
+
+        ],
+    ];
+    protected $attributes = [
+
+    ];
 }

@@ -35,6 +35,7 @@ class LoginServiceProvider extends ServiceProvider
 
     public function boot ()
     {
+        return true;
         // 注册控制器
         if ($this->app->runningInConsole ()) {
             $this->commands ([

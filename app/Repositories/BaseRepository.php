@@ -34,6 +34,9 @@ abstract class BaseRepository implements BaseInterface
      * @var Application
      */
     protected $app;
+    /**
+     * @var Model
+     */
     protected $model;
     protected $authName = 'admin';
     protected $primaryKey = 'id';

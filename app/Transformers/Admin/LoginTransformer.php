@@ -11,7 +11,7 @@
 |-----------------------------------------------------------------------------------------------------------
 */
 
-namespace App\Addons\Login\Transformers;
+namespace App\Transformers\Admin;
 
 
 use App\Addons\Login\Models\Login;

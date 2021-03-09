@@ -11,21 +11,41 @@
 |-----------------------------------------------------------------------------------------------------------
 */
 
-namespace App\Addons\Login\Transformers;
-
+namespace App\Repositories\Admin;
 
 use App\Addons\Login\Models\Login;
-use League\Fractal\TransformerAbstract;
-
-class LoginTransformer extends TransformerAbstract
+use App\Repositories\BaseRepository;
+use App\Addons\Login\Validators\LoginValidator;
+/**
+ * Class LoginRepository.
+ * @package namespace App\Addons\Login\Repositories;
+ */
+class LoginRepository extends BaseRepository
 {
-    public function transform (Login $login)
+    /**
+     * Specify Model class name
+     * @return string
+     */
+    public function model()
     {
-        return [
-            '_show_url'  => url ('admin/login/' . $login->id),
-            '_edit_url'  => url ('admin/login/' . $login->id . '/edit'),
-            '_delete_url'  => url ('admin/login/' . $login->id . '/edit'),
-            '_batch_delete' => url ('admin/login/delete/batch')
-        ];
+        return Login::class;
+    }
+
+    public function boot()
+    {
+        return true;
+    }
+
+    public function validator()
+    {
+        return LoginValidator::class;
+    }
+    /**
+     * @param Login $login
+     * @return boolean;
+     */
+    public function allowDelete(Login $login)
+    {
+        return true;
     }
 }
