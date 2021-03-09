@@ -23,7 +23,7 @@ class AdminMiddleware
             define ('AUTH_SYSTEM_TYPE', 'admin');
 
         if (!get_user_login_id ()) {
-            return response ()->redirectToRoute ('admin-login');
+            return response ()->redirectToRoute ('admin.login');
         }
 
         //检查是否已锁屏
